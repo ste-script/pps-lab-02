@@ -15,10 +15,18 @@ object Exercise02 extends App:
 
   val notEmpty: String => Boolean = neg(empty)
 
-  def negGeneric[A](predicate: A => Boolean): A => Boolean = input => !predicate(input)
+  def negGeneric[A](predicate: A => Boolean): A => Boolean = input =>
+    !predicate(input)
 
   val intPositive: Int => Boolean = _ match
     case x if x >= 0 => true
     case _           => false
 
   val notPositive: Int => Boolean = negGeneric(intPositive)
+
+  val notCurriedCheckMinEquivalence: (Int, Int, Int) => Boolean =
+    (x: Int, y: Int, z: Int) => (x <= y) && y == z
+
+  val curriedCheckMinEquivalence: Int => Int => Int => Boolean =
+    x => y => z => (x <= y) && y == z
+    

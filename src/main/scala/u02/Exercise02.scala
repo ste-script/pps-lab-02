@@ -29,4 +29,9 @@ object Exercise02 extends App:
 
   val curriedCheckMinEquivalence: Int => Int => Int => Boolean =
     x => y => z => (x <= y) && y == z
-    
+
+  def defNotCurriedCheckMinEquivalence(x: Int, y: Int, z: Int): Boolean =
+    (x <= y) && y == z
+
+  def defCurriedCheckMinEquivalence(x: Int)(y: Int)(z: Int): Boolean =
+    (x <= y) && y == z

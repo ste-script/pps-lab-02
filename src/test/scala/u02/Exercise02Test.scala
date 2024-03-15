@@ -37,3 +37,13 @@ class Exercise02Test:
 
   @Test def testFalseCurriedCheckMin =
     assertFalse(curriedCheckMinEquivalence(1)(4)(2))
+
+  @Test def testDefNotCurriedCheckMin =
+    assertFalse(defNotCurriedCheckMinEquivalence(5, 2, 2))
+
+  @Test def testFalseDefNotCurriedCheckMin =
+    assertTrue(defNotCurriedCheckMinEquivalence(1, 3, 3))
+
+  @Test def testDefCurriedCheckMin =
+    val step = defCurriedCheckMinEquivalence(1)(2)
+    assertTrue(step(2))

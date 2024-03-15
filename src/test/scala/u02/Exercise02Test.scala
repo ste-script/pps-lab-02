@@ -6,6 +6,7 @@ import Exercise02.*
 
 class Exercise02Test:
 
+  //step 3a
   @Test def testPositive =
     val a = positive(0)
     assertEquals("positive", a)
@@ -19,13 +20,15 @@ class Exercise02Test:
 
   @Test def testEmpty =
     assertFalse(notEmpty(""))
-
+  
+  //test 3c
   @Test def testTrueGenericNeg =
     assertEquals(true, notPositive(-2))
 
   @Test def testFalseGenericNeg =
     assertEquals(false, notPositive(0))
 
+  //test step 4
   @Test def testNotCurriedCheckMin =
     assertTrue(notCurriedCheckMinEquivalence(1, 2, 2))
 

@@ -1,5 +1,7 @@
 package u02
 
+import scala.compiletime.ops.double
+
 object Exercise02 extends App:
 
   def positive(x: Int): String = x match
@@ -49,3 +51,14 @@ object Exercise02 extends App:
   def gcd(a: Int, b: Int): Int = (a, b) match
     case (a, b) if b == 0 => a
     case (a, b) if a > b  => gcd(b, a % b)
+
+  enum Shape:
+    private case Square(edge: Double)
+
+  object Shape:
+    def rectangle(edge: Double): Shape = Square(edge)
+
+    def perimeter(s: Shape): Double = s match
+      case Square(edge) => edge * 4
+    def scale(s: Shape, a: Double): Shape = s match
+      case Square(edge) => Square((edge) * a)

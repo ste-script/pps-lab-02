@@ -72,8 +72,9 @@ class Exercise02Test:
 
   // test step7
   @Test def testRectangle =
+    import Shape.*
     val rect = rectangle(5)
-    val scale = 2
-    val per = 20
-    assertequals(perimeter(rect), per)
-    assertequals(perimeter(scale(rect, scale)), per * scale)
+    val alphaScale = 2
+    val per: Double = 20
+    assertEquals(perimeter(rect), per, 0)
+    assertEquals(perimeter(scale(rect, alphaScale)), per * alphaScale, 0)

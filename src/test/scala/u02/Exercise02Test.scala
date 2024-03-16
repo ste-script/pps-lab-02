@@ -3,8 +3,6 @@ package u02
 import org.junit.*
 import org.junit.Assert.*
 import Exercise02.*
-import u02.CaseMatch.f
-import u02.Values.s
 
 class Exercise02Test:
 
@@ -94,3 +92,15 @@ class Exercise02Test:
     val per: Double = 31.41
     assertEquals(perimeter(rect), per, 0.1)
     assertEquals(perimeter(scale(rect, alphaScale)), per * alphaScale, 0.1)
+
+  // test step 8
+  @Test def testMap =
+    import Optional.*
+    assertEquals(Maybe(true), map(Maybe(5))(_ > 2))
+    assertEquals(Empty(), map(Empty[Int]())(_ > 2))
+
+  @Test def testFilter =
+    import Optional.*
+    assertEquals(Maybe(5), filter(Maybe(5))(_ > 2))
+    assertEquals(Empty(), filter(Maybe(5))(_ > 8))
+    assertEquals(Empty(), filter[Int](Empty())(_ > 2))

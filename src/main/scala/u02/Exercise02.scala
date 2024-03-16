@@ -1,6 +1,7 @@
 package u02
 
 import scala.compiletime.ops.double
+import scala.compiletime.ops.boolean
 
 object Exercise02 extends App:
 
@@ -72,3 +73,18 @@ object Exercise02 extends App:
       case Rectangle(shortEdge, longEdge) =>
         Rectangle(shortEdge * a, longEdge * a)
       case Circle(radius) => Circle(radius * a)
+
+  // step7
+  enum Optional[A]:
+    case Maybe(value: A)
+    case Empty()
+
+  object Optional:
+    def map[A, B](o: Optional[A])(f: A => B): Optional[B] =
+      o match
+        case Maybe(value) => Maybe(f(value))
+        case _            => Empty()
+    def filter[A](o: Optional[A])(f: A => Boolean): Optional[A] =
+      o match
+        case Maybe(value) if f(value) => Maybe(value)
+        case _                               => Empty()

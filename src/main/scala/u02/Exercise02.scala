@@ -20,7 +20,7 @@ object Exercise02 extends App:
     !predicate(input)
 
   val intPositive: Int => Boolean = _ match
-    case x if x >= 0 => true
+    case x: Int if x >= 0 => true
     case _           => false
 
   val notPositive: Int => Boolean = negGeneric(intPositive)
@@ -41,4 +41,7 @@ object Exercise02 extends App:
   // step 5
 
   def compose(f: Int => Int, g: Int => Int)(x: Int): Int =
+    f(g(x))
+
+  def genericCompose[A,B](f: A => A, g: B => A)(x: B): A =
     f(g(x))

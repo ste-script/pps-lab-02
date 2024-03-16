@@ -3,6 +3,8 @@ package u02
 import org.junit.*
 import org.junit.Assert.*
 import Exercise02.*
+import u02.CaseMatch.f
+import u02.Values.s
 
 class Exercise02Test:
 
@@ -56,3 +58,9 @@ class Exercise02Test:
     val function = compose(_ - 1, _ * 2)(5)
     assertEquals(function, 9)
     assertNotEquals(function, 8)
+
+  @Test def testGenericFunctionalComposition =
+    val function = genericCompose[String,Int](_ + "B", x => (x * 2) + "A")(5)
+    assertEquals(function, "10AB")
+    assertNotEquals(function, 8)
+  

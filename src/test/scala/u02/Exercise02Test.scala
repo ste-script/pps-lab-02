@@ -60,7 +60,12 @@ class Exercise02Test:
     assertNotEquals(function, 8)
 
   @Test def testGenericFunctionalComposition =
-    val function = genericCompose[String,Int](_ + "B", x => (x * 2) + "A")(5)
+    val function = genericCompose[String, Int](_ + "B", x => (x * 2) + "A")(5)
     assertEquals(function, "10AB")
     assertNotEquals(function, 8)
-  
+
+  // test step 6
+  @Test def testGcd =
+    assertEquals(gcd(12, 8), 4)
+    assertEquals(gcd(14, 7), 7)
+    assertEquals(gcd(14, 1), 1)

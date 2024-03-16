@@ -21,7 +21,7 @@ object Exercise02 extends App:
 
   val intPositive: Int => Boolean = _ match
     case x: Int if x >= 0 => true
-    case _           => false
+    case _                => false
 
   val notPositive: Int => Boolean = negGeneric(intPositive)
 
@@ -39,9 +39,13 @@ object Exercise02 extends App:
     (x <= y) && y == z
 
   // step 5
-
   def compose(f: Int => Int, g: Int => Int)(x: Int): Int =
     f(g(x))
 
-  def genericCompose[A,B](f: A => A, g: B => A)(x: B): A =
+  def genericCompose[A, B](f: A => A, g: B => A)(x: B): A =
     f(g(x))
+
+  // step 6
+  def gcd(a: Int, b: Int): Int = (a, b) match
+    case (a, b) if b == 0 => a
+    case (a, b) if a > b  => gcd(b, a % b)

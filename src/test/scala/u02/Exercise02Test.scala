@@ -71,10 +71,18 @@ class Exercise02Test:
     assertEquals(gcd(14, 1), 1)
 
   // test step7
-  @Test def testRectangle =
+  @Test def testSquare =
     import Shape.*
-    val rect = rectangle(5)
+    val rect = square(5)
     val alphaScale = 2
     val per: Double = 20
+    assertEquals(perimeter(rect), per, 0)
+    assertEquals(perimeter(scale(rect, alphaScale)), per * alphaScale, 0)
+
+  @Test def testRectangle =
+    import Shape.*
+    val rect = rectangle(5,2)
+    val alphaScale = 2
+    val per: Double = 14
     assertEquals(perimeter(rect), per, 0)
     assertEquals(perimeter(scale(rect, alphaScale)), per * alphaScale, 0)

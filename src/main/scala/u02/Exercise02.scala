@@ -55,16 +55,20 @@ object Exercise02 extends App:
   enum Shape:
     private case Square(edge: Double)
     private case Rectangle(shortEdge: Double, longEdge: Double)
+    private case Circle(radius: Double)
 
   object Shape:
     def square(edge: Double): Shape = Square(edge)
     def rectangle(shortEdge: Double, longEdge: Double) =
       Rectangle(shortEdge, longEdge)
+    def circle(radius: Double) = Circle(radius)
 
     def perimeter(s: Shape): Double = s match
       case Square(edge)                   => edge * 4
       case Rectangle(shortEdge, longEdge) => shortEdge * 2 + longEdge * 2
+      case Circle(radius)                 => radius * 2 * math.Pi
     def scale(s: Shape, a: Double): Shape = s match
       case Square(edge) => Square((edge) * a)
       case Rectangle(shortEdge, longEdge) =>
         Rectangle(shortEdge * a, longEdge * a)
+      case Circle(radius) => Circle(radius * a)

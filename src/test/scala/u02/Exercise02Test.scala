@@ -81,8 +81,16 @@ class Exercise02Test:
 
   @Test def testRectangle =
     import Shape.*
-    val rect = rectangle(5,2)
+    val rect = rectangle(5, 2)
     val alphaScale = 2
     val per: Double = 14
     assertEquals(perimeter(rect), per, 0)
     assertEquals(perimeter(scale(rect, alphaScale)), per * alphaScale, 0)
+
+  @Test def testCircle =
+    import Shape.*
+    val rect = circle(5)
+    val alphaScale = 2
+    val per: Double = 31.41
+    assertEquals(perimeter(rect), per, 0.1)
+    assertEquals(perimeter(scale(rect, alphaScale)), per * alphaScale, 0.1)

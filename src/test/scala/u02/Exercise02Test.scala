@@ -69,3 +69,11 @@ class Exercise02Test:
     assertEquals(gcd(12, 8), 4)
     assertEquals(gcd(14, 7), 7)
     assertEquals(gcd(14, 1), 1)
+
+  // test step7
+  @Test def testRectangle =
+    val rect = rectangle(5)
+    val scale = 2
+    val per = 20
+    assertequals(perimeter(rect), per)
+    assertequals(perimeter(scale(rect, scale)), per * scale)
